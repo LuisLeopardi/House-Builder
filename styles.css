@@ -41,7 +41,7 @@ ul {
 	justify-content: center;
 	list-style: none;
 	margin: 0;
-	padding: 2rem 0 0 0;
+	padding: 1rem 0 0 0;
 }
 
 li {
@@ -52,7 +52,7 @@ li {
 	align-items: center;
 	justify-content: center;
 	height: 50px;
-	width: 120px;
+	width: 100px;
 	margin: 10px;
 	background: #242424;
 	color: #fff;
@@ -660,13 +660,32 @@ li > ul > li > ul {
 }
 
 @media (max-width: 600px){
+
 	li {
-	height: 35px;
-	width: 80px;
-	margin: 3px;
-	font-size: 90%;
+		margin: 3px;
+		font-size: 90%;
 	}
+}
+
+@media (max-width: 450px){
+
+	li {
+		width: 55px;
+		font-size: 80%;
+		padding: 0 5px 0 5px;
+	}
+
 	p {
-		transform: translateY(-3px);
+		margin: 18px 0 40% 0;
 	}
+
+}
+
+@media (max-width: 330px){
+
+	li {
+		width: 50px;
+		font-size: 70%;
+	}
+
 }
