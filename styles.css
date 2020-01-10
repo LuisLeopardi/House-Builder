@@ -679,6 +679,14 @@ li > ul > li > ul {
 		margin: 18px 0 40% 0;
 	}
 
+	#roof-smokestack {
+		font-size: 60%;
+	}
+
+	li > ul > li > ul {
+		right: -110%;
+	}
+
 }
 
 @media (max-width: 330px){
