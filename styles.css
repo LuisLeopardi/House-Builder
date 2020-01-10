@@ -1,0 +1,672 @@
+body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#menu-wrap{
+	width: 100%;
+}
+
+#button-wrap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+button {
+	height: 80px;
+	width: 150px;
+	margin: 10px;
+	background: #242424;
+	color: #fff;
+	border-radius: 20%;
+	font-size: 150%;
+	border: #1e99e3 3px solid;
+	cursor: pointer;
+	outline: none;
+	transition: background 0.5s ease-in-out;
+}
+
+button:hover, li:hover {
+	background: #383838;
+}
+
+ul {
+	position: relative;
+	display: none;
+	flex-wrap: wrap;
+	width: 100%;
+	text-align: center;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 2rem 0 0 0;
+}
+
+li {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+	width: 120px;
+	margin: 10px;
+	background: #242424;
+	color: #fff;
+	border: none;
+	opacity: 1;
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+}
+
+#target {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 10px;
+	margin: 100px 0 0 0;
+}
+
+li > ul > li > ul {
+	padding: 0;
+	position: absolute;
+	top: -100%;
+	right: -100%;
+}
+
+/* ----------------------------------roof---------------------------------- */
+
+#roof {
+	position: relative;
+	height: 80px;
+	width: 220px;
+	background: #525252;
+	transition: all 0.5s ease-in-out;
+}
+
+#roof::before{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20%;
+	height: 60%;
+	content: '';
+	background: #fff;
+	clip-path: polygon(100% 0, 0 0, 0 100%);
+	z-index: 100;
+}
+
+#roof::after{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20%;
+	height: 60%;
+	content: '';
+	background: #fff;
+	clip-path: polygon(100% 0, 0 0, 100% 100%);
+	z-index: 100;
+}
+
+#roof-material-target{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url("https://www.transparenttextures.com/patterns/skeletal-weave.png");
+	transition: all 0.5s ease-in-out;
+}
+
+#roof-smokestack-target{
+	display: block;
+	position: absolute;
+	top: -60%;
+	left: 45px;
+	height: 50px;
+	width: 20px;
+	background-color: #d42e00;
+	z-index: -1;
+	background-image: url("https://www.transparenttextures.com/patterns/skeletal-weave.png");
+	transition: all 0.5s ease-in-out;
+}
+
+.smoke, .smokeTwo, .smokeThree, .smokefour, .smokefive, .smokeSix, .smokeseven {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	background-color: rgba(18,18,18,0.3);;
+	width: 1px;
+	height: 1px;
+	border-radius: 50%;
+	box-shadow: 0px 0px 29px 13px rgba(18,18,18,1);
+	opacity: 0;
+}
+
+.smoke{
+	animation: smoke 10s infinite;
+}
+
+.smokeTwo{
+	animation: smoke 12s infinite;
+	animation-delay: 2s;
+}
+
+.smokefour {
+	animation: smoke 14s infinite;
+	animation-delay: 4s;
+}
+
+.smokefive {
+	animation: smoke 16s infinite;
+	animation-delay: 6s;
+}
+
+.smokeSix {
+	animation: smoke 18s infinite;	
+	animation-delay: 8s;
+}
+
+.smokeseven {
+	opacity: 1;
+}
+
+#roof-smokestack-target::before{
+	position: absolute;
+	width: 100%;
+	height: 5px;
+	content: '';
+	border-radius: 0 0 50% 50%;
+	background: #000;
+}
+
+#roof-balcony-target{
+	display: flex;
+	justify-content: space-around;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.balcony-fence{
+	width: 2px;
+	height: 20px;
+	background-color: #a36f2a;
+	transform: translateY(58px);
+	z-index: 2;
+}
+
+.fence-support {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	height: 2px;
+	background-color: #a36f2a;
+	z-index: 2;
+}
+
+.balcony-door {
+	position: absolute;
+	bottom: 0;
+	right: 45px;
+	background-color: #b84d1c;
+	width: 35px;
+	height: 45px;
+	border-radius: 50% 50% 0 0;
+	border-color: #6e2e12;
+	border-style: solid;
+	border-width: 1px;
+	z-index: 1;
+}
+
+.balcony-door::before {
+	position: absolute;
+	bottom: 50%;
+	right: 3px;
+	width: 3px;
+	height: 3px;
+	content: '';
+	border-radius: 50%;
+	background: #f7c83b;
+}
+
+#roof-balcony-target::before {
+	content: '';
+	position: absolute;
+	left: -5%;
+	bottom: 0;
+	width: 110%;
+	height: 4px;
+	background-color: #a36f2a;
+	z-index: 2;
+}
+
+#roof-Science-balcony-target{
+	position: relative;
+	display: none;
+	justify-content: space-around;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.science-fence {
+	position: absolute;
+	width: 5px;
+	height: 20px;
+	bottom: 4px;
+	left: 5px;
+	background-color: #bababa;
+	z-index: 2;
+}
+
+.science-fenceTwo {
+	position: absolute;
+	width: 5px;
+	height: 20px;
+	bottom: 4px;
+	right: 5px;
+	background-color: #bababa;
+	z-index: 2;
+}
+
+.beeb::before{
+	content: '';
+	position: absolute;
+	top: 0%;
+	width: 100%;
+	height: 4px;
+	background-color: #ff7830;
+	animation: beeb 0.5s infinite;
+}
+
+.science-support {
+	position: absolute;
+	bottom: 10px;
+	left: 8px;
+	width: 5px;
+	height: 8px;
+	background-color: #199fff;
+	z-index: 2;
+   	animation: science 2s ease infinite;
+}
+
+.science-supportTwo {
+	position: absolute;
+	bottom: 10px;
+	left: 5px;
+	right: 5px;
+	height: 8px;
+	background-color: #199fff;
+	z-index: 1;
+	animation-name: scienceTwo;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#roof-Science-balcony-target::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 4px;
+	background-color: #bababa;
+	z-index: 2;
+}
+
+.science-door {
+	position: absolute;
+	bottom: 3px;
+	background-color:#e0e0e0;
+	width: 35px;
+	height: 45px;
+	right: 42%;
+	clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+.science-door::before {
+	content: '';
+	position: absolute;
+	bottom: 50%;
+	right: 8px;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	background-color: #000;
+}
+
+#roof-Ancient-balcony-target{
+	display: none;
+	justify-content: space-around;
+}
+
+.ancient-color {
+	background-color: #947c47;
+}
+
+.ancient-fence{
+	transform: translateY(52px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	z-index: 2;
+}
+
+.base {
+	width: 10px;
+	height: 6px;
+	clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+.body {
+	width: 8px;
+	height: 5px;
+	border-radius: 50%;
+	transform: translateY(2px);
+}
+
+.head {
+	width: 3px;
+	height: 7px;
+	transform: translateY(4px);
+}
+
+.head::before {
+	content: '';
+	position: absolute;
+	right: -2px;
+	top: -2px;
+	height: 2px;
+	width: 7px;
+	border-radius: 0 0 50% 50%;
+	background-color: #947c47;
+}
+
+.slab-container {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+}
+
+.slab {
+	height: 10px;
+	width: 15px;
+	background-color: #947c47;
+	border-color: #000;
+	border-style: solid;
+	border-width: 0 0 0 0.1px;
+}
+
+.slab:first-of-type {
+	border-width: 0;
+}
+
+.ancient-support {
+	position: absolute;
+	width: 90%;
+	height: 3px;
+	bottom: 25px;
+	z-index: 2;
+}
+
+.ancient-door {
+	position: absolute;
+	bottom: 15px;
+	left: 50px;
+	width: 30px;
+	height: 50px;
+	border-radius: 50% 50% 0 0;
+	background-color: #402105;
+	z-index: 1;
+}
+
+.ancient-door::before {
+	content: '';
+	position: absolute;
+	right: 25%;
+	top: 40%;
+	width: 5px;
+	height: 5px;
+	border-radius:50%;
+	background-color: #000;
+}
+
+.ancient-door::after {
+	content: '';
+	position: absolute;
+	left: 25%;
+	top: 40%;
+	width: 5px;
+	height: 5px;
+	border-radius:50%;
+	background-color: #000;
+}
+
+.door-mark {
+	position: absolute;
+	bottom: 10px;
+	left: 45px;
+	width: 40px;
+	height: 62px;
+	border-radius: 50% 50% 0 0;
+	background-image: url("https://www.transparenttextures.com/patterns/white-brick-wall.png");
+	background-color: #b39c84;
+	z-index: 0;
+}
+
+.ancient-wall {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	height: 40%;
+	background-image: url("https://www.transparenttextures.com/patterns/white-brick-wall.png");
+	background-color: #b39c84;
+}
+
+/* ----------------------------------front---------------------------------- */
+
+
+
+#front {
+	overflow: hidden;
+	position: relative;
+	height: 120px;
+	width: 220px;
+	background: #d42e00;
+	transition: all 0.5s ease-in-out;
+}
+
+#front-material-target{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url("https://www.transparenttextures.com/patterns/white-brick-wall.png");
+}
+
+#front-windows-target, #front-windows-target-two, #front-windows-circle-target, #front-windows-circle-target-two, #front-windows-square-target, #front-windows-square-target-two, #front-windows-target-single{
+	display: block;
+	position: absolute;
+	top: 10px;
+	left: 14px;
+	background-color: #0082a3;
+	border-width: 2px;
+	border-color: #fff5d9;
+	border-style: solid;
+}
+
+#front-windows-circle-target, #front-windows-circle-target-two, #front-windows-square-target, #front-windows-square-target-two, #front-windows-target-single {
+	display: none;
+}
+
+#front-windows-target, #front-windows-target-two {
+	width: 30px;
+	height: 40px;
+	border-radius: 50% 50% 0 0;
+}
+
+#front-windows-target-two, #front-windows-circle-target-two, #front-windows-square-target-two{
+	left: unset;
+	right: 14px;
+}
+
+#front-windows-target::before, #front-windows-target-two::before, #front-windows-circle-target::before, #front-windows-circle-target-two::before, #front-windows-square-target::before, #front-windows-square-target-two::before, #front-windows-target-single::before{
+	height: 100%;
+	width: 2px;
+	content: '';
+	position: absolute;
+	left: 50%;
+	background-color: #fff5d9;
+}
+
+#front-windows-target::after, #front-windows-target-two::after, #front-windows-circle-target::after, #front-windows-circle-target-two::after, #front-windows-square-target::after, #front-windows-square-target-two::after, #front-windows-target-single::after{
+	height: 2px;
+	width: 100%;
+	content: '';
+	position: absolute;
+	top: 49%;
+	background-color: #fff5d9;
+}
+
+#front-windows-circle-target, #front-windows-circle-target-two {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+
+#front-windows-square-target, #front-windows-square-target-two{
+	width: 30px;
+	height: 40px;
+}
+
+#front-windows-target-single {
+	left: 20px;
+	top: 30px;
+	width: 80%;
+	height: 15px;
+}
+
+#front-door-target, #front-door-round-target, #front-door-circle-target {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 41%;
+	background-color: #613200;
+	width: 40px;
+	height: 50px;
+	border-width: 1px 1px 0 1px;
+	border-color: #291500;
+	border-style: solid;
+}
+
+#front-door-target::before, #front-door-round-target::before, #front-door-circle-target::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 5%;
+	background-color: yellow;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+}
+
+#front-door-round-target, #front-door-circle-target {
+	display: none;
+	border-radius: 50% 50% 0 0;
+}
+
+#front-door-circle-target {
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	bottom: -5px;
+	left: 38%;
+}
+
+#front-door-circle-target::before {
+	top: 45%;
+	right: 15%;	
+}
+
+@keyframes science {
+	0% {
+		left: 10px;
+	}
+	50% {
+		left: 205px;
+	}
+	100% {
+		left: 10px;
+	}
+}
+
+@keyframes scienceTwo {
+	0% {
+		opacity: 1;
+		background-color: #199fff;
+	}
+	50% {
+		opacity: 0.9;
+		background-color: #1792eb;
+	}
+	75% {
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 1;
+		background-color: #199fff;
+	}
+}
+
+@keyframes beeb {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes smoke {
+	0%   {top:0; opacity: 0}
+	5%   {top: -3px;    left:3px; opacity: 0.3}
+	10%  {top: -6px;    left:6px; opacity: 0.5} 
+	15%  {top: -10px;   left:3px; opacity: 0.8}
+	20%  {top: -15px;     left:0; opacity: 1}
+	25%  {top: -19px;  left:-3px;}
+	30%  {top: -25px;  left:-6px;}
+	35%  {top: -29px;  left:-9px;}
+	40%  {top: -34px; left:-12px;}
+	45%  {top: -38px; left:-15px;}
+	50%  {top: -44px; left:-18px;}
+	55%  {top: -48px; left:-18px;}
+	60%  {top: -53px; left:-16px;}
+	65%  {top: -56px; left:-15px;}
+	70%  {top: -59px; left:-13px;}
+	75%  {top: -63px; left:-10px;}
+	80%  {top: -67px;  left:-6px;}
+	85%  {top: -71px;  left:-4px;}
+	90%  {top: -75px;  left:-2px;}
+	95%  {top: -80px;   left:0px;}
+	100% {top: -87px;   left:2px;}					
+}
+
+@media (max-width: 600px){
+	li {
+	height: 35px;
+	width: 80px;
+	margin: 3px;
+	font-size: 90%;
+	}
+	p {
+		transform: translateY(-3px);
+	}
+}
