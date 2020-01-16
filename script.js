@@ -343,7 +343,7 @@ const front = {
 	frontColorSave = localStorage.getItem('frontColor') || front.color;
 	houseFront.style.backgroundColor = frontColorSave;
 	frontMaterialSave = localStorage.getItem('frontMaterial') || front.material;
-	houseFront.style.backgroundImage = frontMaterialSave;
+	frontMaterialTarget.style.backgroundImage = frontMaterialSave;
 	normalWindowSave = localStorage.getItem('normalWindow') || front.normalWindow;
 	frontNormalWindows.style.display = normalWindowSave;
 	frontNormalWindowsTwo.style.display = normalWindowSave;
@@ -359,7 +359,6 @@ const front = {
 	frontDoorNormalTarget.style.display = normalDoorSave;
 	roundDoorSave = localStorage.getItem('roundDoor') || front.roundDoor;
 	frontDoorRoundTarget.style.display = roundDoorSave;
-
 	circleDoorSave = localStorage.getItem('circleDoor') || front.circleDoor;
 	frontDoorCircleTarget.style.display = circleDoorSave;
 
