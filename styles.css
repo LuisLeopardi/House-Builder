@@ -84,7 +84,6 @@ li > ul > li > ul {
 	position: relative;
 	height: 80px;
 	width: 220px;
-	background: #525252;
 	transition: all 0.5s ease-in-out;
 }
 
@@ -118,20 +117,16 @@ li > ul > li > ul {
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	background-image: url("https://www.transparenttextures.com/patterns/skeletal-weave.png");
 	transition: all 0.5s ease-in-out;
 }
 
 #roof-smokestack-target{
-	display: block;
 	position: absolute;
 	top: -60%;
 	left: 45px;
 	height: 50px;
 	width: 20px;
-	background-color: #d42e00;
 	z-index: -1;
-	background-image: url("https://www.transparenttextures.com/patterns/skeletal-weave.png");
 	transition: all 0.5s ease-in-out;
 }
 
@@ -185,7 +180,6 @@ li > ul > li > ul {
 }
 
 #roof-balcony-target{
-	display: flex;
 	justify-content: space-around;
 	position: absolute;
 	height: 100%;
@@ -479,7 +473,6 @@ li > ul > li > ul {
 	position: relative;
 	height: 120px;
 	width: 220px;
-	background: #d42e00;
 	transition: all 0.5s ease-in-out;
 }
 
@@ -487,11 +480,10 @@ li > ul > li > ul {
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	background-image: url("https://www.transparenttextures.com/patterns/white-brick-wall.png");
 }
 
 #front-windows-target, #front-windows-target-two, #front-windows-circle-target, #front-windows-circle-target-two, #front-windows-square-target, #front-windows-square-target-two, #front-windows-target-single{
-	display: block;
+	display: none;
 	position: absolute;
 	top: 10px;
 	left: 14px;
@@ -499,10 +491,6 @@ li > ul > li > ul {
 	border-width: 2px;
 	border-color: #fff5d9;
 	border-style: solid;
-}
-
-#front-windows-circle-target, #front-windows-circle-target-two, #front-windows-square-target, #front-windows-square-target-two, #front-windows-target-single {
-	display: none;
 }
 
 #front-windows-target, #front-windows-target-two {
@@ -582,7 +570,6 @@ li > ul > li > ul {
 }
 
 #front-door-circle-target {
-	display: block;
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
@@ -671,9 +658,19 @@ li > ul > li > ul {
 
 @media (max-width: 450px){
 
-	li {
-		width: 55px;
+	button {
+		height: 40px;
+		width: 100px;
+		margin: 2px;
+		font-size: 100%;
+	}
+
+	ul {
 		font-size: 80%;
+	}
+
+	li {
+		width: 55px;	
 		padding: 0 5px 0 5px;
 	}
 
@@ -693,9 +690,17 @@ li > ul > li > ul {
 
 @media (max-width: 330px){
 
-	li {
-		width: 50px;
+	ul {
 		font-size: 70%;
 	}
 
+	li {
+		width: 50px;
+	}
+
 }
+
+
+
+
+

@@ -57,12 +57,12 @@ const frontButton = document.getElementById('front-button');
 const houseFront = document.getElementById('front');
 const frontMaterialTarget = document.getElementById('front-material-target');
 const frontWindowSingleTarget = document.getElementById('front-windows-target-single');
-const frontWindowNormalTarget = document.getElementById('front-windows-target');
-const frontWindowNormalTargetTwo = document.getElementById('front-windows-target-two');
-const frontWindowSquareTarget = document.getElementById('front-windows-square-target');
-const frontWindowSquareTargetTwo = document.getElementById('front-windows-square-target-two');
-const frontWindowCircleTarget = document.getElementById('front-windows-circle-target');
-const frontWindowCirlcleTargetTwo = document.getElementById('front-windows-circle-target-two');
+const frontNormalWindows = document.getElementById('front-windows-target');
+const frontNormalWindowsTwo = document.getElementById('front-windows-target-two');
+const frontRectangleWindows = document.getElementById('front-windows-square-target');
+const frontRectangleWindowsTwo = document.getElementById('front-windows-square-target-two');
+const frontCircleWindows = document.getElementById('front-windows-circle-target');
+const frontCircleWindowsTwo = document.getElementById('front-windows-circle-target-two');
 const frontDoorNormalTarget = document.getElementById('front-door-target');
 const frontDoorRoundTarget = document.getElementById('front-door-round-target');
 const frontDoorCircleTarget = document.getElementById('front-door-circle-target');
@@ -96,9 +96,65 @@ const frontDoorCircle = document.getElementById('front-door-option-circle');
 /*children*/
 const frontAllUl = [frontColorOptions,frontMaterialOptions,frontWindowsOptions,frontDoorOptions];
 
+/*----------------------------------------Clear----------------------------------------*/
+
+const clear = document.getElementById('clear');
+
+clear.addEventListener('click', ()=>{
+	localStorage.clear();
+	location.reload();
+})
+
+/*----------------------------------------Save----------------------------------------*/
+
+const save = document.getElementById('save');
+
+save.addEventListener('click', ()=>{
+
+	/* Roof */
+
+	let roofColorSave = localStorage.setItem('RoofColor', houseRoof.style.backgroundColor);
+	let roofMaterialSave = localStorage.setItem('RoofMaterial', roofMaterialTarget.style.backgroundImage);
+	let roofSmokestackSave = localStorage.setItem('smokestack', roofSmokestackTarget.style.display);
+	let smokeStackColorSave = localStorage.setItem('smokestackColor', roofSmokestackTarget.style.backgroundColor);
+	let smokestackMaterialSave = localStorage.setItem('smokestackMaterial', roofSmokestackTarget.style.backgroundImage)
+	let normalBalconySave = localStorage.setItem('normalBalcony', roofBalconyTarget.style.display);
+	let scienceBalconySave = localStorage.setItem('scienceBalcony', roofCienceBalconyTarget.style.display);
+	let ancientBalconnySave = localStorage.setItem('ancientBalcony', roofAncientBalconyTarget.style.display);
+
+	/* Front */
+
+	let frontColorSave = localStorage.setItem('frontColor', houseFront.style.backgroundColor);
+	let frontMaterialSave = localStorage.setItem('frontMaterial', houseFront.style.backgroundImage);
+	let normalWindowSave = localStorage.setItem('normalWindow', frontNormalWindows.style.display);
+	let rectangleWindowSave = localStorage.setItem('rectangleWindow', frontRectangleWindows.style.display);
+	let circleWindowSave = localStorage.setItem('circleWindow', frontCircleWindows.style.display);
+	let singleWindowSave = localStorage.setItem('singleWindow', frontWindowSingleTarget.style.display);
+	let normalDoorSave = localStorage.setItem('normalDoor', frontDoorNormalTarget.style.display);
+	let roundDoorSave = localStorage.setItem('roundDoor', frontDoorRoundTarget.style.display);
+	let circleDoorSave = localStorage.setItem('circleDoor', frontDoorCircleTarget.style.display)
+});
+
+
 
 
 let roof = {
+
+	color: '#525252',
+
+	material: 'url("https://www.transparenttextures.com/patterns/skeletal-weave.png")',
+
+	smokestackS: 'block',
+
+	smokestackColorS: '#d42e00',
+
+	smokestackMaterialS: 'url("https://www.transparenttextures.com/patterns/skeletal-weave.png")',
+
+	normalBalcony: 'flex',
+
+	scienceBalcony: 'flex',
+
+	ancientBalcony: 'flex',
 
 	changeColor: color => {
 		houseRoof.style.backgroundColor = color;
@@ -127,6 +183,26 @@ let roof = {
 	},
 
 };
+
+/* DOM display */
+
+roofColorSave = localStorage.getItem( 'RoofColor' ) || roof.color;
+houseRoof.style.backgroundColor = roofColorSave;
+
+roofMaterialSave = localStorage.getItem( 'RoofMaterial' ) || roof.material;
+roofMaterialTarget.style.backgroundImage = roofMaterialSave;
+
+roofSmoketackSave = localStorage.getItem('smokestack') || roof.smokestackS;
+roofSmokestackTarget.style.display = roofSmoketackSave;
+
+smokeStackColorSave = localStorage.getItem('smokestackColor') || roof.smokestackColorS;
+roofSmokestackTarget.style.backgroundColor = smokeStackColorSave;
+
+smokestackMaterialSave = localStorage.getItem('smokestackMaterial') || roof.smokestackMaterialS;
+roofSmokestackTarget.style.backgroundImage = smokestackMaterialSave;
+
+normalBalconySave = localStorage.getItem('normalBalcony') || roof.normalBalcony;
+roofBalconyTarget.style.display = normalBalconySave;
 
 /* roof colors */
 
@@ -216,6 +292,22 @@ roofAncientBalcony.addEventListener('click', ()=>{
 
 const front = {
 
+	color: '#d42e00',
+
+	material: 'url("https://www.transparenttextures.com/patterns/white-brick-wall.png")',
+
+	normalWindow: 'block',
+
+	rectangleWindow: 'none',
+
+	circleWindow: 'none',
+
+	normalDoor: 'block',
+
+	roundDoor: 'none',
+
+	circleDoor: 'none',
+
 	changeColor: color => {
 		houseFront.style.backgroundColor = color;
 	},
@@ -224,13 +316,17 @@ const front = {
 		frontMaterialTarget.style.backgroundImage = material;
 	},
 
-	windows: (firts,second,thrid,fourth)=>{
-		frontWindowNormalTarget.style.display = firts;
-		frontWindowNormalTargetTwo.style.display = firts;
-		frontWindowSquareTarget.style.display = second;
-		frontWindowSquareTargetTwo.style.display = second;
-		frontWindowCircleTarget.style.display = thrid;
-		frontWindowCirlcleTargetTwo.style.display = thrid;
+	windows: (firts,second,thrid,fourth) => {
+
+		frontNormalWindows.style.display = firts;
+		frontNormalWindowsTwo.style.display = firts;
+		
+		frontRectangleWindows.style.display = second;
+		frontRectangleWindowsTwo.style.display = second;
+
+		frontCircleWindows.style.display = thrid;
+		frontCircleWindowsTwo.style.display = thrid;
+
 		frontWindowSingleTarget.style.display = fourth;
 	},
 
@@ -241,6 +337,31 @@ const front = {
 	},
 
 };
+
+/* DOM display */
+
+	frontColorSave = localStorage.getItem('frontColor') || front.color;
+	houseFront.style.backgroundColor = frontColorSave;
+	frontMaterialSave = localStorage.getItem('frontMaterial') || front.material;
+	houseFront.style.backgroundImage = frontMaterialSave;
+	normalWindowSave = localStorage.getItem('normalWindow') || front.normalWindow;
+	frontNormalWindows.style.display = normalWindowSave;
+	frontNormalWindowsTwo.style.display = normalWindowSave;
+	rectangleWindowSave = localStorage.getItem('rectangleWindow') || front.rectangleWindow;
+	frontRectangleWindows.style.display = rectangleWindowSave;
+	frontRectangleWindowsTwo.style.display = rectangleWindowSave;
+	circleWindowSave = localStorage.getItem('circleWindow') || front.circleWindow;
+	frontCircleWindows.style.display = circleWindowSave;
+	frontCircleWindowsTwo.style.display = circleWindowSave;
+	singleWindowSave = localStorage.getItem('singleWindow') || front.singleWindow;
+	frontWindowSingleTarget.style.display = singleWindowSave;
+	normalDoorSave = localStorage.getItem('normalDoor') || front.normalDoor;
+	frontDoorNormalTarget.style.display = normalDoorSave;
+	roundDoorSave = localStorage.getItem('roundDoor') || front.roundDoor;
+	frontDoorRoundTarget.style.display = roundDoorSave;
+
+	circleDoorSave = localStorage.getItem('circleDoor') || front.circleDoor;
+	frontDoorCircleTarget.style.display = circleDoorSave;
 
 /* front color */
 
@@ -301,7 +422,6 @@ frontDoorRound.addEventListener('click', ()=>{
 frontDoorCircle.addEventListener('click', ()=>{
 	front.door('none','none','block')
 });
-
 
 /*----------------------------------------Menu----------------------------------------*/
 
