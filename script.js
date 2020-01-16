@@ -142,13 +142,13 @@ let roof = {
 
 	color: '#525252',
 
-	material: 'url("https://www.transparenttextures.com/patterns/skeletal-weave.png")',
+	material: 'url("img/brick2.png")',
 
 	smokestackS: 'block',
 
 	smokestackColorS: '#d42e00',
 
-	smokestackMaterialS: 'url("https://www.transparenttextures.com/patterns/skeletal-weave.png")',
+	smokestackMaterialS: 'url("img/brick2.png")',
 
 	normalBalcony: 'flex',
 
@@ -221,15 +221,15 @@ roofColorRed.addEventListener('click', ()=>{
 /* roof material */
 
 roofMaterialBrick.addEventListener('click', ()=>{
-	roof.changeMaterial('url("https://www.transparenttextures.com/patterns/skeletal-weave.png")')
+	roof.changeMaterial('url("img/brick2.png")',)
 });
 
 roofMaterialWood.addEventListener('click', ()=>{
-	roof.changeMaterial('url("https://www.transparenttextures.com/patterns/dark-wood.png")')
+	roof.changeMaterial('url("img/wood2.png")')
 });
 
 roofMaterialMetal.addEventListener('click', ()=>{
-	roof.changeMaterial('url("https://www.transparenttextures.com/patterns/light-aluminum.png")')
+	roof.changeMaterial('url("img/metal2.png")')
 });
 
 /* roof smokestack */
@@ -294,7 +294,7 @@ const front = {
 
 	color: '#d42e00',
 
-	material: 'url("https://www.transparenttextures.com/patterns/white-brick-wall.png")',
+	material: 'url("img/brick1.png")',
 
 	normalWindow: 'block',
 
@@ -379,15 +379,15 @@ frontColorRed.addEventListener('click', ()=>{
 /* front material */
 
 frontMaterialMetal.addEventListener('click', ()=>{
-	front.changeMaterial('url("https://www.transparenttextures.com/patterns/brushed-alum.png")');
+	front.changeMaterial('url("img/metal1.png")');
 });
 
 frontMaterialBrick.addEventListener('click', ()=>{
-	front.changeMaterial('url("https://www.transparenttextures.com/patterns/white-brick-wall.png")');
+	front.changeMaterial('url("img/brick1.png")');
 });
 
 frontMaterialWood.addEventListener('click', ()=>{
-	front.changeMaterial('url("https://www.transparenttextures.com/patterns/tileable-wood.png")');
+	front.changeMaterial('url("img/wood1.png")');
 });
 
 /* front windows */
