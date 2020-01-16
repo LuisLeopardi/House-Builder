@@ -650,9 +650,12 @@ li > ul > li > ul {
 
 @media (max-width: 600px){
 
+	ul {
+		font-size: 90%;
+	}
+
 	li {
 		margin: 3px;
-		font-size: 90%;
 	}
 }
 
@@ -676,10 +679,6 @@ li > ul > li > ul {
 
 	p {
 		margin: 18px 0 40% 0;
-	}
-
-	#roof-smokestack {
-		font-size: 60%;
 	}
 
 	li > ul > li > ul {
